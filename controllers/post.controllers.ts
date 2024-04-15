@@ -2,11 +2,11 @@ let fs = require('fs')
 const data = fs.readFileSync('./data-json/post.data.json', {
   encoding: 'utf8',
 })
-export const getposts = () => {
+export const get_posts = () => {
   const obj: any = JSON.parse(data)
   return obj
 }
-export const postid_Search = (temp_id: string) => {
+export const post_id_Search = (temp_id: string) => {
   const obj: any = JSON.parse(data)
   console.log(temp_id)
   for (let i = 0; i < 10; i++) {

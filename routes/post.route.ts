@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express'
-import { getposts } from '../controllers/post.controllers'
-import { postid_Search } from '../controllers/post.controllers'
+import { get_posts } from '../controllers/post.controllers'
+import { post_id_Search } from '../controllers/post.controllers'
 
 const post_router = express.Router()
 post_router.get('/get-posts', (_: Request, res: Response) => {
   try {
-    const result = getposts()
+    const result = get_posts()
     res.json(result)
   } catch (error) {
     console.log(error)
@@ -21,7 +21,7 @@ post_router.get('/get-post', (req: Request, res: Response) => {
       throw new Error('Id buruu baina')
     }
 
-    const postid_result = postid_Search(req.query?.id)
+    const postid_result = post_id_Search(req.query?.id)
     if (!postid_result) {
       throw new Error('Пост олдсонгүй')
     }

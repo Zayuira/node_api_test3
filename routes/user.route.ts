@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express'
-import { getusers } from '../controllers/user.controllers'
-import { id_Search } from '../controllers/user.controllers'
+import { get_users } from '../controllers/user.controllers'
+import { id_search } from '../controllers/user.controllers'
 const user_router = express.Router()
 
 user_router.get('/get-users', (_: Request, res: Response) => {
   try {
-    const result = getusers()
+    const result = get_users()
     res.json({ result })
   } catch (err) {
     console.log(err)
@@ -17,7 +17,7 @@ user_router.get('/get-users', (_: Request, res: Response) => {
 })
 user_router.get('/get-user', (req: Request, res: Response) => {
   try {
-    const id_result = id_Search(req.query?.user_id)
+    const id_result = id_search(req.query?.user_id)
     if (!id_result) {
       throw new Error('Хэрэглэгч олдсонгүй')
     }
